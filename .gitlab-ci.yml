@@ -1,4 +1,7 @@
-demo-job:
+variables:
+  NAME: 'John'
+  MESSAGE: 'How are you'
+
+display_message:
   script:
-    - echo $CI_COMMIT_MESSAGE
-    - echo $CI_JOB_NAME
+    - echo "Hello $NAME, $MESSAGE"
