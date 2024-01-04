@@ -1,9 +1,23 @@
-variables:
-  NAME: 'John'
-  MESSAGE: 'How are you'
-
-display_message:
-  variables:
-    NAME: 'Mark'
+push_image:
   script:
-    - echo "Hello $NAME, $MESSAGE"
+    - docker login -u $USERNAME -p $PASSWORD
+    - docker tag pyapp:latest $USERNAME/myapp:latest
+    - docker push $USERNAME/myapp:latest
+  tags:
+    - localshell
+    - localrunner
+
+
+
+
+
+
+#variables:
+  #NAME: 'John'
+  #MESSAGE: 'How are you'
+
+#display_message:
+  #variables:
+    #NAME: 'Mark'
+  #script:
+    #- echo "Hello $NAME, $MESSAGE"
