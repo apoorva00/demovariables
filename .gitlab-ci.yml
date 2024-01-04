@@ -3,5 +3,7 @@ variables:
   MESSAGE: 'How are you'
 
 display_message:
+  variables:
+    NAME: 'Mark'
   script:
     - echo "Hello $NAME, $MESSAGE"
