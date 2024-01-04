@@ -1,4 +1,10 @@
+stages:
+  - push
+  - display
+
+
 push_image:
+  stage: push
   script:
     - docker login -u $USERNAME -p $PASSWORD
     - docker tag pyapp:latest $USERNAME/myapp:latest
@@ -7,6 +13,10 @@ push_image:
     - localshell
     - localrunner
 
+display_message:
+  stage: display
+  script:
+    - echo "Hi, $USERNAME"
 
 
 
@@ -17,7 +27,9 @@ push_image:
   #MESSAGE: 'How are you'
 
 #display_message:
+  #stage: display
   #variables:
-    #NAME: 'Mark'
+  #NAME: 'John'
+  #MESSAGE: 'How are you'
   #script:
     #- echo "Hello $NAME, $MESSAGE"
